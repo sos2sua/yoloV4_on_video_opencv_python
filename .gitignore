@@ -7,7 +7,8 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-./idea/
+.idea/
+yolov4.weights
 .DS_Store
 .Python
 build/
