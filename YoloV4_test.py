@@ -21,7 +21,7 @@ vc = cv2.VideoCapture(TEST_VIDEO_FILE_NAME)
 
 net = cv2.dnn.readNet("model/yolov4.weights", "model/yolov4.cfg")
 net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
-net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA_FP16)
+net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
 
 model = cv2.dnn_DetectionModel(net)
 model.setInputParams(size=(416, 416), scale=1 / 255, swapRB=True)
