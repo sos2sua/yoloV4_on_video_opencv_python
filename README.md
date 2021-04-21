@@ -1,4 +1,4 @@
-# opencv_python
+# yoloV4 on video using Opencv and Python
 
 Tested with Python 3.9.2 using Pycharm CE 2021.1
 https://www.jetbrains.com/pycharm/download/#section=mac
