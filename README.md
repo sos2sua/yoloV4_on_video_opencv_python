@@ -17,6 +17,7 @@ Customization parameters on YoloV4.py:
 1. MIN_CONFIDENCE_THRESHOLD = 0.5
 2. SKIP_FRAMES_TO_SPEEDUP = False , True SKIP_FRAME_COUNT = 60
 3. DETECT_ALL_CLASSES = False, True desiredClasses = ["person", "car", "motorbike", "bus", "truck", "sheep"]
+4. SAVE_OUTPUT_VIDEO = False, True OUTPUT_VIDEO_FPS = 30
 
 
 
