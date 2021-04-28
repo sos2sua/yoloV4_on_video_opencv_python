@@ -2,9 +2,11 @@ import cv2
 
 TEST_VIDEO_FILE_NAME = "video/test.mp4"
 MIN_CONFIDENCE_THRESHOLD = 0.5
+SAVE_OUTPUT_VIDEO = True
+OUTPUT_VIDEO_FPS = 30
 
-SKIP_FRAMES_TO_SPEEDUP = False
-SKIP_FRAME_COUNT = 60
+SKIP_FRAMES_TO_SPEEDUP = True
+SKIP_FRAME_COUNT = 6
 DETECT_ALL_CLASSES = False
 desiredClasses = ["person", "car", "motorbike", "bus", "truck", "sheep"]
 
@@ -28,10 +30,18 @@ model.setInputParams(size=(416, 416), scale=1 / 255, swapRB=True)
 
 skip = 0
 
+writer = 0
 while cv2.waitKey(1) < 1:
     (grabbed, frame) = vc.read()
     if not grabbed:
+        if SAVE_OUTPUT_VIDEO:
+            writer.release()
         exit()
+
+    if SAVE_OUTPUT_VIDEO and writer == 0:
+        frameHeight, frameWidth, _ = frame.shape
+        writer = cv2.VideoWriter('output/output.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), OUTPUT_VIDEO_FPS,
+                                 (frameWidth, frameHeight))
 
     if SKIP_FRAMES_TO_SPEEDUP:
         if skip >= SKIP_FRAME_COUNT:
@@ -50,3 +60,5 @@ while cv2.waitKey(1) < 1:
         cv2.putText(frame, classNames[id[0]], (box[0], box[1] - 5), cv2.FONT_ITALIC, 0.8, (255, 255, 255), 2)
 
     cv2.imshow("detections", frame)
+    if SAVE_OUTPUT_VIDEO:
+        writer.write(frame)

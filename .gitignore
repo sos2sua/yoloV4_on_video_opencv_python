@@ -11,6 +11,7 @@ __pycache__/
 yolov4.weights
 .DS_Store
 .Python
+output/
 build/
 develop-eggs/
 dist/
