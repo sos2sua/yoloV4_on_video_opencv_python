@@ -40,7 +40,7 @@ while cv2.waitKey(1) < 1:
 
     if SAVE_OUTPUT_VIDEO and writer == 0:
         frameHeight, frameWidth, _ = frame.shape
-        writer = cv2.VideoWriter('output/output.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), OUTPUT_VIDEO_FPS,
+        writer = cv2.VideoWriter('video/output.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), OUTPUT_VIDEO_FPS,
                                  (frameWidth, frameHeight))
 
     if SKIP_FRAMES_TO_SPEEDUP:
