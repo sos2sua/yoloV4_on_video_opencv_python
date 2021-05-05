@@ -18,6 +18,7 @@ Customization parameters on YoloV4.py:
 2. SKIP_FRAMES_TO_SPEEDUP = False , True SKIP_FRAME_COUNT = 60
 3. DETECT_ALL_CLASSES = False, True desiredClasses = ["person", "car", "motorbike", "bus", "truck", "sheep"]
 4. SAVE_OUTPUT_VIDEO = False, True OUTPUT_VIDEO_FPS = 30
+5. SAVE_DETECTED_OBJECT_IMAGES = True, This will save images of the detected objects to disk.
 
 
 

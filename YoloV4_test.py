@@ -10,7 +10,7 @@ SKIP_FRAME_COUNT = 6
 DETECT_ALL_CLASSES = False
 desiredClasses = ["person", "car", "motorbike", "bus", "truck", "sheep"]
 
-SAVE_DETECTED_OBJECT_IMAGES=True
+SAVE_DETECTED_OBJECT_IMAGES = True
 
 LOOKING_FOR = []
 classNames = []
