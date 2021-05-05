@@ -12,6 +12,7 @@ yolov4.weights
 .DS_Store
 .Python
 build/
+objects/*
 develop-eggs/
 dist/
 downloads/
