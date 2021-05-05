@@ -9,6 +9,7 @@ __pycache__/
 # Distribution / packaging
 .idea/
 yolov4.weights
+video/output.avi
 .DS_Store
 .Python
 build/
