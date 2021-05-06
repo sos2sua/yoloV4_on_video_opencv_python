@@ -20,7 +20,7 @@ Customization parameters on YoloV4.py:
 4. SAVE_OUTPUT_VIDEO = False, True OUTPUT_VIDEO_FPS = 30
 5. SAVE_DETECTED_OBJECT_IMAGES = True, This will save images of the detected objects to disk.
 
-
+Check out the result https://youtu.be/fUcbuuVpyf4
 
 
 
