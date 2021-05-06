@@ -1,19 +1,21 @@
 import cv2
+import numpy as np
 
 TEST_VIDEO_FILE_NAME = "video/test.mp4"
 MIN_CONFIDENCE_THRESHOLD = 0.5
 SAVE_OUTPUT_VIDEO = True
 OUTPUT_VIDEO_FPS = 30
 
-SKIP_FRAMES_TO_SPEEDUP = True
+SKIP_FRAMES_TO_SPEEDUP = False
 SKIP_FRAME_COUNT = 6
-DETECT_ALL_CLASSES = False
+DETECT_ALL_CLASSES = True
 desiredClasses = ["person", "car", "motorbike", "bus", "truck", "sheep"]
 
-SAVE_DETECTED_OBJECT_IMAGES = True
+SAVE_DETECTED_OBJECT_IMAGES = False
 
 LOOKING_FOR = []
 classNames = []
+
 with open("model/classList.txt", "r") as f:
     for name in f.readlines():
         name = name.strip()
@@ -21,6 +23,10 @@ with open("model/classList.txt", "r") as f:
         if not DETECT_ALL_CLASSES:
             if name in desiredClasses:
                 LOOKING_FOR.append(len(classNames) - 1)
+
+np.random.seed(42)
+colors = np.random.randint(0, 255, size=(len(classNames), 3), dtype='uint8')
+
 vc = cv2.VideoCapture(TEST_VIDEO_FILE_NAME)
 
 net = cv2.dnn.readNet("model/yolov4.weights", "model/yolov4.cfg")
@@ -66,8 +72,8 @@ while cv2.waitKey(1) < 1:
             x, y, w, h = box
             objectROI = frame[y:y+h, x:x+w]
             cv2.imwrite("objects/"+classNames[id[0]]+str(objectCount)+".jpg", objectROI)
-
-        cv2.rectangle(frame, box, (255,0,0), 2)
+        color = [int(c) for c in colors[id[0]]]
+        cv2.rectangle(frame, box, color, 2)
         cv2.putText(frame, classNames[id[0]], (box[0], box[1] - 5), cv2.FONT_ITALIC, 0.8, (255, 255, 255), 2)
 
     cv2.imshow("detections", frame)
