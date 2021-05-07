@@ -71,7 +71,7 @@ while cv2.waitKey(1) < 1:
             objectCount += 1
             x, y, w, h = box
             objectROI = frame[y:y+h, x:x+w]
-            cv2.imwrite("objects/"+classNames[id[0]]+str(objectCount)+".jpg", objectROI)
+            cv2.imwrite("detectedObjects/"+classNames[id[0]]+str(objectCount)+".jpg", objectROI)
         color = [int(c) for c in colors[id[0]]]
         cv2.rectangle(frame, box, color, 2)
         cv2.putText(frame, classNames[id[0]], (box[0], box[1] - 5), cv2.FONT_ITALIC, 0.8, (255, 255, 255), 2)

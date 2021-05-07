@@ -13,7 +13,6 @@ video/output.avi
 .DS_Store
 .Python
 build/
-objects/*
 develop-eggs/
 dist/
 downloads/
